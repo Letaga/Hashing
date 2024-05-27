@@ -63,14 +63,16 @@ public:
 
 	void show()
 	{
-		cout << ">" << endl;
+		cout << "> ======================" << endl;
 		for (const auto& m : Buckets)
 		{
+			cout << "[";
 			for (const auto& p : m)
-				cout << "{ " << p.first << ", " << p.second << " }; ";
+				cout << " { " << p.first << ", " << p.second << " }; ";
+			cout << "]";
 			cout << endl;
 		}
-		cout << "<" << endl;
+		cout << "< ======================" << endl;
 	}
 
 	int size()
@@ -91,7 +93,10 @@ void testInt()
 	h.insert(5, 8);
 	h.insert(32, 7);
 	h.insert(8, 4);
-	h.insert(6, 30);
+	h.insert(-6, 30);
+	h.insert(13, 12);
+	h.insert(121, 11);
+	h.insert(79, 5);
 	h[5] = 3;
 	h.show();
 
@@ -105,7 +110,7 @@ void testInt()
 void testStr()
 {
 	Hashing <string, string> tea;
-	cout << "\n===========================\nstring, string" << endl;
+	cout << "\nstring, string" << endl;
 	tea.insert("Bai Hao Yinzhen", "white tea");
 	tea.insert("Jasmine", "green tea");
 	tea.insert("Earl grey", "black tea");
@@ -117,5 +122,5 @@ void testStr()
 int main()
 {
 	testInt();
-	testStr();	
+	testStr();
 }
