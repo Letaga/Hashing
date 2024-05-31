@@ -14,8 +14,12 @@ int hashKey(int key)
 int hashKey(const string& key)
 {
 	int hash = 0;
+	int ind = 1;
 	for (char c : key)
-		hash += c;
+	{
+		hash += (c * ind);
+		ind++;
+	}
 	return hash;
 }
 int hashKey(char key)
@@ -113,14 +117,28 @@ void testStr()
 	cout << "\nstring, string" << endl;
 	tea.insert("Bai Hao Yinzhen", "white tea");
 	tea.insert("Jasmine", "green tea");
+	tea.insert("Chamomile", "green tea");
 	tea.insert("Earl grey", "black tea");
 	tea.insert("Karkade", "red tea");
 	tea.show();
 	cout << "Jasmine is " << tea.at("Jasmine");
+	cout << endl;
+}
+
+void testChar()
+{
+	Hashing <char, char> ch;
+	cout << "\nchar, char" << endl;
+	ch.insert('3', 'b');
+	ch.insert('u', 'h');
+	ch.insert('0', 'o');
+	ch.insert('r', ',');
+	ch.show();
 }
 
 int main()
 {
 	testInt();
 	testStr();
+	testChar();
 }
